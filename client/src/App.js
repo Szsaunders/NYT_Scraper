@@ -60,11 +60,12 @@ class App extends Component {
     .catch(err => console.log(err));
   }
   
-  loadSavedArticles = () => {
 
-    API.getSavedArticles().then(res =>
-      this.SetState({ savedArticles: res.data}))
-    }
+  loadSavedArticles = () => {
+    API.getSavedArticles().then(function(response) {
+      this.setState({ savedArticles: response.data });
+    }.bind(this));
+  }
 
   handleInputChange = event => {
     
