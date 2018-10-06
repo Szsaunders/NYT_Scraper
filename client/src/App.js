@@ -36,7 +36,9 @@ class App extends Component {
       title: article.snippet,
       date: article.pub_date,
       url: article.web_url
-    })
+    }).then(
+      this.loadSavedArticles()
+    )
   }
 
   handleArticlesClear = event => {
@@ -45,8 +47,11 @@ class App extends Component {
   }
 
   handleArticleDelete = event => {
+    this.loadSavedArticles()
     event.preventDefault();
-    API.deleteArticle(event.target.value)
+    API.deleteArticle(event.target.value).then(
+      this.loadSavedArticles()
+    )
 
   }
 
@@ -85,7 +90,7 @@ class App extends Component {
       <div className="card">
       <div className="card-header">
       <strong>
-      <i className="fa fa-list-alt"></i> {this.state.searchTerm} Search Parameters</strong>
+      <i className="fa fa-list-alt"></i>Search Parameters</strong>
       </div>
       <div className="card-body">
       <div>Search Term:</div>
