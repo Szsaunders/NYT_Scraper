@@ -149,8 +149,8 @@ class App extends Component {
       {this.state.savedArticles.map(article => (
       <ListItem key={article._id}>
         <a href={article.url}><h3>{article.title}</h3></a>
-        <p>{article.date}</p>
         <FormBtn value={article._id} onClick={this.handleArticleDelete} name="deleteButton" className="btn-danger">Delete</FormBtn>
+        <p>{article.date}</p>
       </ListItem>))}
       </List>
       </div>
