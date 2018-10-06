@@ -30,8 +30,8 @@ class App extends Component {
   handleArticleSave = event => {
     event.preventDefault();
     console.log(event.target)
-    console.log(event.target.attributes['data_id'].value)
-    var article = this.state.articles[event.target.attributes['data_id'].value]
+    console.log(event.target.value)
+    var article = this.state.articles[event.target.value]
     API.saveArticle({
       title: article.snippet,
       date: article.pub_date,
@@ -123,7 +123,7 @@ class App extends Component {
       {this.state.articles.map((article, index) => (
       <ListItem key={article._id}>
         <a href={article.web_url}><h2>{article.snippet}</h2></a>
-        <FormBtn data-id={index} onClick={this.handleArticleSave} name="saveButton" className="btn-success">Save</FormBtn>
+        <FormBtn value={index} onClick={this.handleArticleSave} name="saveButton" className="btn-success">Save</FormBtn>
         <p>{article.pub_date}</p>
       </ListItem>))}
       </List>
