@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+ import React, { Component } from 'react';
 import Jumbotron from './components/Jumbotron';
 import { Col, Row, Container } from './components/Grid';
 import { FormBtn, Input } from './components/Form';
@@ -123,7 +123,7 @@ class App extends Component {
       {this.state.articles.map((article, index) => (
       <ListItem key={article._id}>
         <a href={article.web_url}><h2>{article.snippet}</h2></a>
-        <FormBtn data-id={index} onClick={this.handleArticleSave} name="saveButton" className="btn-success">Save</FormBtn>
+        <FormBtn name={index} onClick={this.handleArticleSave} name="saveButton" className="btn-success">Save</FormBtn>
         <p>{article.pub_date}</p>
       </ListItem>))}
       </List>
