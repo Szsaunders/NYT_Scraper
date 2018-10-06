@@ -18,9 +18,9 @@ class App extends Component {
 
   
   
-  // componentDidMount() {
-  //   this.loadSavedArticles()
-  // }
+  componentDidMount() {
+    this.loadSavedArticles()
+  }
   
   handleSearchSubmit= event => {
     event.preventDefault();
@@ -46,7 +46,7 @@ class App extends Component {
 
   handleArticleDelete = event => {
     event.preventDefault();
-    API.deleteArticle(event.target.data_id)
+    API.deleteArticle(event.target.value)
 
   }
 
@@ -144,7 +144,7 @@ class App extends Component {
       <ListItem key={article._id}>
         <a href={article.url}><h3>{article.title}</h3></a>
         <p>{article.date}</p>
-        <FormBtn data-id={article._id} onClick={this.handleArticleDelete} name="deleteButton" className="btn-danger">Delete</FormBtn>
+        <FormBtn value={article._id} onClick={this.handleArticleDelete} name="deleteButton" className="btn-danger">Delete</FormBtn>
       </ListItem>))}
       </List>
       </div>
